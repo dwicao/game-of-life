@@ -18,8 +18,12 @@ export default class GridContainer extends Component {
 							{[...Array(xtd)].map((_, i2) =>
 							    <Grid
 							    	className="tile"
-							    	id={`x${i1}${i2}`}
-							    	style={null}
+							    	id={`${i1}x${i2}`}
+							    	col={i1}
+							    	row={i2}
+							    	pushToRow={this.props.pushToRow}
+							    	updateCurrentTile={this.props.updateCurrentTile}
+							    	rows={this.props.rows}
 							    />
 							)}
 						</tr>
@@ -31,6 +35,7 @@ export default class GridContainer extends Component {
 }
 
 GridContainer.propTypes = {
-	currentId: PropTypes.string.isRequired,
-	updateId: PropTypes.func.isRequired
+	updateCurrentTile: PropTypes.func.isRequired,
+	pushToRow: PropTypes.func.isRequired,
+	rows: PropTypes.array.isRequired
 };

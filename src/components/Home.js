@@ -7,23 +7,35 @@ export default class Home extends Component {
 		super();
 
 		this.state = {
-			currentId: ''
+			currentCol: 0,
+			currentRow: 0,
+			rows: []
 		};
 
-		this.updateId = this.updateId.bind(this);
+		this.updateCurrentTile = this.updateCurrentTile.bind(this);
+		this.pushToRow = this.pushToRow.bind(this);
 	}
 
-	updateId(id) {
-		this.setState({ currentId: id });
+	updateCurrentTile(col, row) {
+		this.setState({
+			currentCol: col,
+			currentRow: row
+		});
+	}
+
+	pushToRow(col, row) {
+		this.setState({ rows: this.state.rows.concat([[...Array(35)].map(e => e = false)]) });
 	}
 
 	render() {
+		console.log( this.state.rows );
 		return (
 			<div>
 				<h1 className="title">Conway's Game of Life</h1>
 				<GridContainer
-					currentId={this.state.currentId}
-					updateId={this.updateId}
+					updateCurrentTile={this.updateCurrentTile}
+					pushToRow={this.pushToRow}
+					rows={this.state.rows}
 				/>
 			</div>
 		);
