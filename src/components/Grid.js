@@ -34,7 +34,6 @@ export default class Grid extends Component {
 }
 
 Grid.propTypes = {
-	id: PropTypes.string.isRequired,
 	className: PropTypes.string.isRequired,
 	col: PropTypes.number.isRequired,
 	row: PropTypes.number.isRequired,
