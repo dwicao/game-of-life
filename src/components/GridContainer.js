@@ -21,9 +21,7 @@ export default class GridContainer extends Component {
 							    	id={`${i1}x${i2}`}
 							    	col={i1}
 							    	row={i2}
-							    	pushToRow={this.props.pushToRow}
-							    	updateCurrentTile={this.props.updateCurrentTile}
-							    	rows={this.props.rows}
+							    	grid={this.props.grid}
 							    />
 							)}
 						</tr>
@@ -35,7 +33,5 @@ export default class GridContainer extends Component {
 }
 
 GridContainer.propTypes = {
-	updateCurrentTile: PropTypes.func.isRequired,
-	pushToRow: PropTypes.func.isRequired,
-	rows: PropTypes.array.isRequired
+	grid: PropTypes.array.isRequired
 };
